@@ -8,18 +8,21 @@ from files import *
 
 
 class MainForm:
-    xls_file_name = 'Graph.xls'
     form = Tk(className='Строим график')
 
     def __init__(self):
         self.form.wm_minsize(width=700, height=600)
-        self.openGraphButton = Button(self.form, text='Построить график', command=self.create_graf)
+        self.openGraphButton = Button(self.form, text='Построить график', command=self.open_file)
         self.openGraphButton.pack(side='top')
 
         self.form.mainloop()
 
-    def create_graf(self):
-        data = read_xls_file(self.xls_file_name)
+    def open_file(self):
+        xls_file_name = open_window()
+        self.create_graf(xls_file_name)
+
+    def create_graf(self, xls_file_name):
+        data = read_xls_file(xls_file_name)
 
         x = data.values[:, 0]
         y = data.values[:, 1]

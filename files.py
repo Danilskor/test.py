@@ -1,4 +1,5 @@
 import pandas as pd
+import easygui
 
 
 def read_xls_file(file_name):
@@ -7,3 +8,6 @@ def read_xls_file(file_name):
     return excel_table
 
 
+def open_window():
+    read = easygui.fileopenbox()
+    return read
