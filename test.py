@@ -1,0 +1,3 @@
+from MainForm import *
+
+MainForm()
